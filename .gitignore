@@ -1,6 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 bower_components
+users_workspace
 
 ### STS ###
 .apt_generated
