@@ -1,0 +1,1 @@
+angular.module('CARTP2', ['ngRoute', 'ui.bootstrap', 'appRoutes', 'home']);

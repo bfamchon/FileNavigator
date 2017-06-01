@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="File & directory actions">
+    <meta name="author" content="FAMCHON Baptiste">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+
+    <title>CAR TP2 - Hey</title>
+
+    <!-- JS -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ANGULAR CUSTOM -->
+    <script src="app/controllers/home.controller.js"></script>
+    <script src="app/services/home.service.js"></script>
+    <script src="app/appRoutes.js"></script>
+    <script src="app/app.js"></script>
+</head>
+<body ng-app="CARTP2">
+<!-- INCLUDE ELEMENT THAT WILL ALWAYS BE PROMPT ON SCREEN -->
+<div ng-include src="'app/views/navbar.html'"></div>
+<div ng-view></div>
+</body>
+</html>

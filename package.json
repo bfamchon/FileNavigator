@@ -1,0 +1,14 @@
+{
+  "name": "TP2",
+  "version": "1.0.0",
+  "description": "TP2 CAR MIAGE M1",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "~1.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FAMCHON Baptiste",
+  "license": "ISC"
+}

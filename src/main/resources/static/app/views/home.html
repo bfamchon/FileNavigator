@@ -1,0 +1,93 @@
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>
+                <i ng-if="homeCtrl.data.parent.name !== 'users_workspace'"
+                   ng-click="homeCtrl.getContent(homeCtrl.data.parent)"
+                   class="fa fa-arrow-left" aria-hidden="true"></i>
+                {{homeCtrl.data.parent.name}}
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form>
+                <div class="input-field">
+                    <i class="fa fa-plus prefix"
+                       ng-click="homeCtrl.createDirectory()"></i>
+                    <input id="newDir" type="text" class="validate"
+                           ng-model="homeCtrl.newDirectoryName">
+                    <label for="newDir">Create a new directory</label>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <form>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button ng-disabled="!homeCtrl.myFile.name" class="btn btn-default"
+                                ng-click="homeCtrl.uploadFile()">
+                            <i class="fa fa-upload" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="file-field input-field">
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Pick a file..."
+                                   value="{{homeCtrl.myFile.name}}">
+                            <input type="file" file-model="myFile">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <table class="table table-inverse table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Resources</th>
+                    <th style="text-align: center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="resource in homeCtrl.data.dirContent | orderBy: 'type'">
+                    <th>
+                        <i ng-click="homeCtrl.getContent(resource)"
+                           ng-if="resource.type ==='directory'"
+                           class="fa fa-2x fa-folder-o" aria-hidden="true"></i>
+                        <i ng-if="resource.type ==='file'"
+                           class="fa fa-2x fa-file-o" aria-hidden="true"></i>
+                        <span>{{resource.name}}</span>
+                    </th>
+                    <td style="text-align: center">
+                        <form id="edit">
+                            <div class="input-field">
+                                <a href="{{homeCtrl.adress}}/file{{resource.path}}" target="_blank"
+                                   download="{{resource.name}}">
+                                    <i ng-if="resource.type ==='file'" class="fa fa-2x fa-download" aria-hidden="true"
+                                       title="Download {{resource.name}}"></i>
+                                </a>
+                                <i class="fa fa-2x fa-trash-o" aria-hidden="true"
+                                   title="Delete {{resource.name}}"
+                                   ng-click="homeCtrl.deleteContent(resource)"></i>
+                                <i class="fa fa-2x fa-pencil prefix" aria-hidden="true"
+                                   title="Edit {{resource.name}}"
+                                   ng-click="homeCtrl.editContent(resource)"></i>
+                                <input ng-blur="homeCtrl.editContent(resource)"
+                                       ng-model="homeCtrl.newResourceName"
+                                       type="text"
+                                       title="Change resource's name">
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+                <tr ng-if="homeCtrl.data.dirContent.length === 0" style="font-style: italic">
+                    <td colspan="2" style="text-align: center">No resources found in this directory...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
