@@ -45,7 +45,9 @@
             if (vm.newResourceName !== "" && vm.newResourceName !== resource.name) {
                 vm.newResourceName = vm.newResourceName.replace(/(\.[^.]*)$/,'');
                 resource.name = resource.name.replace(/^(.[^.]*)/, vm.newResourceName);
-                homeService.editContent(resource,vm.newResourceName);
+                homeService.editContent(resource,vm.newResourceName).then(() => {
+                    resource.path = resource.path.replace(/([^\/]*)$/,resource.name);
+                });
             }
         };
 

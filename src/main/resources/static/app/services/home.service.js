@@ -70,7 +70,7 @@
         }
 
         function editContent(resource, name) {
-            $http.put(resource.type + resource.path,{},
+            return $http.put(resource.type + resource.path,{},
                 {params: {
                     name: name
                 }
